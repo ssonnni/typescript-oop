@@ -4,6 +4,7 @@ interface IAccountInfo {
   balance: number;
 }
 
+
 class BankAccount {
   private accountInfo: IAccountInfo;
 
@@ -39,7 +40,20 @@ class BankAccount {
   }
 }
 
-const account = new BankAccount("010-2888-3013", "양소현", 0);
+class SavingsAccount extends BankAccount {
+  private interestRate: number;
+
+  constructor(accountNumber: string, accountHolder: string, initialBalance: number, interestRate: number) {
+      super(accountNumber, accountHolder, initialBalance);
+      this.interestRate = interestRate;
+  }
+
+  addInterest(): void {
+      
+  }
+}
+
+const account = new BankAccount("010-2020-3030", "양소현", 0);
 
 console.log(account.getAccountInfo());
 account.deposit(500)
